@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-echo 'Creating virtualenv: pfive'
-virtualenv pfive
-source pfive/bin/activate
+echo 'Installing virtualenvwrapper'
+pip install virtualenvwrapper
+source `which virtualenvwrapper.sh`
 
-echo 'Installing Django'
-pip install django
+echo 'Creating virtualenv: pfivev'
+mkvirtualenv pfivev
+workon pfivev
 
-echo 'Installing Django Rest Framework'
-pip install djangorestframework
+echo 'Installing python dependencies'
+pip install -r requirements.txt
 
 # TODO: setup local postgres database
