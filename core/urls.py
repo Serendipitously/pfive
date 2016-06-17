@@ -1,9 +1,12 @@
 from django.conf.urls import url
+from rest_framework.urlpatterns import format_suffix_patterns
 from core.views import HomeView
-from core.views import gallery
+from core.views import GalleryList, GalleryDetail
 
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name="home"),
-    url(r'^gallery/$', gallery.gallery_list),
-    url(r'^gallery/(?P<pk>[0-9]+)/$', gallery.gallery_detail),
+    url(r'^gallery/$', GalleryList.as_view()),
+    url(r'^gallery/(?P<pk>[0-9]+)/$', GalleryDetail.as_view()),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
