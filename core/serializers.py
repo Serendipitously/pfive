@@ -3,7 +3,6 @@ from rest_framework import serializers
 
 from core.models import Gallery
 
-
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
@@ -19,4 +18,5 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
-        fields = ('title', 'author', 'page_count')
+        fields = ('title', 'author', 'page_count', 'id')
+
