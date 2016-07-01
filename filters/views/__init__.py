@@ -1,3 +1,3 @@
 # flake8: noqa
-from .filter import FilterView, FilterList, FilterDetail
+from .filter import FilterList, FilterDetail
 from .criteria import CriteriaList, CriteriaDetail
