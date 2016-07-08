@@ -40,7 +40,7 @@ PREREQ_APPS = [
 
 PROJECT_APPS = [
     'core',
-    'filter',
+    'filters',
     'sync',
 ]
 

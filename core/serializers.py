@@ -19,4 +19,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
-        fields = ('title', 'author', 'page_count')
+        fields = ('id', 'title', 'author', 'page_count')
