@@ -3,14 +3,16 @@ from django.db import models
 
 class Gallery(models.Model):
     CATEGORIES = (
-        (1, 'Non-H'),
-        (2, 'Game CG'),
-        (3, 'Doujinshi'),
-        (4, 'Manga'),
-        (5, 'Artist CG'),
-        (6, 'Artist'),
-        (7, 'Cosplay'),
-        (8, 'Misc')
+        (1, 'Doujinshi'),
+        (2, 'Manga'),
+        (3, 'Game CG'),
+        (4, 'Artist CG'),
+        (5, 'Western'),
+        (6, 'Non-H'),
+        (7, 'Image Set'),
+        (8, 'Cosplay'),
+        (9, 'Asian Porn'),
+        (0, 'Misc')
     )
 
     gid = models.IntegerField(default=-1)
@@ -18,7 +20,7 @@ class Gallery(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100, blank=True, default='')
     title_jpn = models.CharField(max_length=100, blank=True, default='')
-    category = models.IntegerField(choices=CATEGORIES, default=8)
+    category = models.IntegerField(choices=CATEGORIES, default=0)
     filecount = models.IntegerField(default=0)
     expunged = models.BooleanField(default=False)
     # TODO: add tags to this model
