@@ -19,4 +19,5 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
-        fields = ('id', 'title', 'author', 'page_count')
+        fields = ('id', 'gid', 'token', 'title',
+                  'category', 'filecount', 'expunged')
