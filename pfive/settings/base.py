@@ -136,3 +136,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Custom Variables
+
+EXTERNAL_REQUEST_TIMEOUT = 5000
+GEHENTAI_HOST = "http://g.e-hentai.org"
+EXHENTAI_HOST = "https://exhentai.org"
