@@ -5,7 +5,7 @@ import requests
 from sync.sessions import GehentaiAPISession
 
 class Command(BaseCommand):
-  help = 'Test the Sync Command'
+  help = 'Test the Ge Sync Command'
 
   def handle(self, *args, **options):
     self.stdout.write('Running Ge Sync Command.')
@@ -14,7 +14,7 @@ class Command(BaseCommand):
       json={
         "method": "gdata",
         "gidlist": [
-            [449153,"c66e77a80f"]
+            [972589, "61204a23cf"]
         ],
         "namespace": 1
       })

@@ -1,5 +1,6 @@
 appnope==0.1.0
 backports.shutil-get-terminal-size==1.0.0
+beautifulsoup4==4.5.1
 decorator==4.0.10
 Django==1.9.7
 djangorestframework==3.3.3

@@ -1,6 +1,8 @@
 from django.core.management.base import BaseCommand
 
-from sync.sessions import GehentaiAPISession
+from bs4 import BeautifulSoup
+
+from sync.sessions import GehentaiAPISession, GehentaiSession
 
 
 # [449153, "c66e77a80f"],
@@ -13,7 +15,7 @@ from sync.sessions import GehentaiAPISession
 # [972358, "9581c72fea"]
 
 class Command(BaseCommand):
-  help = 'Test the Sync Command'
+  help = 'Test the Ex Sync Command'
 
   def handle(self, *args, **options):
     self.stdout.write('Running Ex Sync Command.')
@@ -28,3 +30,16 @@ class Command(BaseCommand):
         "namespace": 1
       })
     print(response.content)
+
+    session = GehentaiSession()
+    response = session.getList()
+    print(response.content)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    divs = soup.find_all('div', class_='it5')
+    links = [element.a['href'] for element in divs]
+    print(len(links))
+
+    print(links)
+
+    # import ipdb; ipdb.set_trace()

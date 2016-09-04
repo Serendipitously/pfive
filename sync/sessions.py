@@ -30,3 +30,20 @@ class GehentaiAPISession(BaseSession):
   def request(self, method, url, **kwargs):
     url = '/api.php' + url
     return super(GehentaiAPISession, self).request(method, url, **kwargs)
+
+class GehentaiSession(BaseSession):
+
+  def __init__(self, *args, **kwargs):
+    super(GehentaiSession, self).__init__(*args, **kwargs)
+    _validate_setting_set('GEHENTAI_HOST')
+    self.host_root = settings.GEHENTAI_HOST
+
+  def get(self, gid, gtoken, **kwargs):
+    url = '/g/' + str(gid) + '/' + str(gtoken)
+    return super(GehentaiSession, self).get(url, **kwargs)
+
+  def getList(self, page=None, **kwargs):
+    url = '/'
+    if page is not None:
+      url += '?page=' + str(page)
+    return super(GehentaiSession, self).get(url, **kwargs)
