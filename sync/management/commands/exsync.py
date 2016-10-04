@@ -17,29 +17,32 @@ from sync.sessions import GehentaiAPISession, GehentaiSession
 class Command(BaseCommand):
   help = 'Test the Ex Sync Command'
 
+
+  def add_arguments(self, parser):
+    parser.add_argument('page', type=int)
+
+
   def handle(self, *args, **options):
     self.stdout.write('Running Ex Sync Command.')
 
     APISession = GehentaiAPISession()
-    response = APISession.post('/',
-      json={
-        "method": "gdata",
-        "gidlist": [
-          [449153, "c66e77a80f"]
-        ],
-        "namespace": 1
-      })
-    print(response.content)
+    # response = APISession.post('/',
+    #   json={
+    #     "method": "gdata",
+    #     "gidlist": [
+    #       [449153, "c66e77a80f"]
+    #     ],
+    #     "namespace": 1
+    #   })
+    # print(response.content)
 
     session = GehentaiSession()
-    response = session.getList()
-    print(response.content)
+    page = options.get('page', None)
+    response = session.getList(page=page)
+    # print(response.content)
     soup = BeautifulSoup(response.content, 'html.parser')
-
     divs = soup.find_all('div', class_='it5')
     links = [element.a['href'] for element in divs]
     print(len(links))
 
     print(links)
-
-    # import ipdb; ipdb.set_trace()
